@@ -1,0 +1,83 @@
+#Kaitlin Morgan
+#Assignment 3, Part 2
+
+#<!--------Functions from Part 1------->
+
+#Defining mirror function
+def mirror(DNA):
+#Reversing the DNA string
+    DNA = DNA[::-1]
+#Defining the letters to swap
+    DNA = DNA.replace('A','*')
+    DNA = DNA.replace('T','A')
+    DNA = DNA.replace('*','T')
+    DNA = DNA.replace('C','*')
+    DNA = DNA.replace('G','C')
+    DNA = DNA.replace('*','G')
+#Reversing the DNA letters again with their swaps to mirror them
+    mirror_DNA = DNA[::-1]
+    return mirror_DNA
+
+#Defining reverse function
+def reverse(DNA):
+#Reversing the DNA string starting with letter position -1
+    reverse_DNA = DNA[::-1]
+    return reverse_DNA
+
+#Creating a function for validating DNA sequence
+def valid_DNA(DNA):
+#If DNA letters found in string, returns valid or if not, invalid
+    if "A" in DNA or "G" in DNA or "C" in DNA or "T" in DNA:
+        return "Valid"
+    else:
+        return "Invalid"
+
+#<!--------Project 5: Counting Matches------->
+
+#Prompt user to enter two strings
+string1 = input("Enter first DNA string: ")
+string2 = input("Enter second DNA string: ")
+#If strings are not valid, can't fins the matches
+if valid_DNA(string1) != "Valid" and valid_DNA(string2) != "Valid":
+    print("Sorry, DNA strings are invalid.")
+#If they are valid, this temporarily replaces like letter strings with x
+#and then counts the x's to come up with a total number matches
+else:
+    matches = "".join("x" if string1[i] == string2[i] else " " for i in range(len(string1)))
+    print("Number of matches: ", matches.count("x"))
+
+#<!--------Project 6: Longest Match Length------->
+
+#User input of two strings
+stringone = input("Enter first DNA string: ")
+stringtwo = input("Enter second DNA string: ")
+#Finding length of both DNA strings
+len_stringone = len(stringone)
+len_stringtwo = len(stringtwo)
+#Determining which is longest and printing the length
+if len_stringone > len_stringtwo:
+    print("Longest length is: ", len_stringone)
+elif len_stringone < len_stringtwo:
+    print("Longest length is: ", len_stringtwo)
+else:
+    print("Longest length is: ", len_stringone)
+
+#<!--------Project 7: Valid in Database------->
+
+#User input for a DNA string
+sequence = input("Enter a DNA sequence: ")
+#Specifying if it's valid or not
+if valid_DNA(sequence) != "Valid":
+    print("Sorry, the DNA string is invalid.")
+#Finding the lengths of every version of the string and detemining
+#which one gives the best score number wise
+else:
+    sl = len(sequence)
+    ms = len(mirror(sequence))
+    rs = len(reverse(sequence))
+    if sl > ms and sl > rs:
+          print(sequence)
+    elif ms > sl and ms > rs:
+          print(mirror(sequence))
+    else:
+          print(reverse(sequence))
