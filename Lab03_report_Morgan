@@ -1,0 +1,51 @@
+<!--------Report-------->
+
+The objectives of this program were to interpret DNA strings, find their mirror
+strings, find their reverse strings, verify their validity, see how they connect
+to other DNA strings, and work with their matches and lengths compared to
+introduced secondary strings.  The program requires basic knowledge of genes
+and using their four letter combinations / properties to string them together
+appropriately and carry out the assigned tasks.  It also introduces a future
+assignment, hinted at with the final project which mentions a database of DNA
+strings.
+
+Some of the main variables I used in this program include names for user input
+strings (all basically doing the same things, obtaining an input, but for the
+purpose of not mixing them up names varied slightly): DNA, sequence, string1,
+string2, stringone, and stringtwo.  Next, I made a few definition functions in
+order to simplify the code a bit.  The variable "valid_DNA" refers to the
+function that determines whether or not the DNA string is valid based on the
+letters inputted by the user.  The variable "reverse" simply flips all the
+inputted DNA string letters backward.  The "mirror" function reverses the
+string and then does some letter replacement and reverses the string a second
+time after the replacement to create a mirrored effect.  I used many if-else
+statements to compare the strings and the len function to find their lengths for
+part 2.
+
+In terms of the algorithm, the program works by reversing DNA strings by
+recognizing the last letter and flipping the rested after it.  The mirror does
+this twice, flipping the DNA string and then jumbling the letters in accordance
+to their pair other letter and then flipping it again.  Then the program checks
+if the string is valid and will move on to the next if it's invalid.  The next
+part takes a valid two strings, compares their reverse and mirror strings and
+sees if they are the same DNA strand.  The next program compares two DNA strands
+again and spits out the number of matches in terms of their lettering.  Then it
+takes two DNA strings and tells the length of the longest string of matches.
+Finally, it should find the longest match within the number of matches and
+print the corresponding DNA string.
+
+For the first part of this assignment, I didn't run into too many problems.
+Once I figured out how to reverse the string, the initial mirror was easy to
+figure out.  I specifically set them up as functions for later use and found
+it much easier to refer back to them as well as the validity function used many
+times in part 2.  I did have some difficulties with the validity function,
+however.  I couldn't get it to deem a string invalid if one letter was valid
+but the rest were no.  For instance, "DOG" would still return valid because
+of the "G", but functions containing all letters that were not A, G, C, or T
+composed spit back invalid.  For the second part, I had many more difficulties
+figuring it out and did not manage to get everything to work exactly as it
+was meant to work.  The match counter only counts identical letters instead of
+sets.  The computed lengths are of the actual strings and not necessarily the
+matches.  And due to having difficulties figuring out these two, the code for
+project seven is off as well.  I tried to make them all have some form of an
+input / output code that came close.
