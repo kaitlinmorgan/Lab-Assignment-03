@@ -1,0 +1,70 @@
+#Kaitlin Morgan
+#Assignment 3, Part 1
+
+#<!--------Project 1: Mirror------->
+
+#Defining mirror function
+def mirror(DNA):
+#Reversing the DNA string
+    DNA = DNA[::-1]
+#Defining the letters to swap
+    DNA = DNA.replace('A','*')
+    DNA = DNA.replace('T','A')
+    DNA = DNA.replace('*','T')
+    DNA = DNA.replace('C','*')
+    DNA = DNA.replace('G','C')
+    DNA = DNA.replace('*','G')
+#Reversing the DNA letters again with their swaps to mirror them
+    mirror_DNA = DNA[::-1]
+    return mirror_DNA
+#User input for DNA
+DNA = input("Enter a string of DNA: ")
+#Printing mirrored DNA string
+print("The mirror string of DNA is: " + mirror(DNA))
+
+#<!--------Project 2: Reverse------>
+
+#Defining reverse function
+def reverse(DNA):
+#Reversing the DNA string starting with letter position -1
+    reverse_DNA = DNA[::-1]
+    return reverse_DNA
+#Entering DNA string
+DNA = input("Enter a string of DNA: ")
+#Printing reverse string
+print("The reverse string of DNA is", reverse(DNA))
+
+#<!--------Project 3: Validity----->
+
+#Creating a function for validating DNA sequence
+def valid_DNA(DNA):
+#If DNA letters found in string, returns valid or if not, invalid
+    if "A" in DNA or "G" in DNA or "C" in DNA or "T" in DNA:
+        return "Valid"
+    else:
+        return "Invalid"
+#User input DNA string
+DNA = input("Enter a string of DNA: ")
+#Printing validity of DNA string
+print(valid_DNA(DNA))
+
+#<!--------Project 4: Matching----->
+
+#User input of both strings
+string1 = input("Enter first DNA string: ")
+string2 = input("Enter second DNA string: ")
+
+#Checking if both strings are valid using valid_DNA function
+if valid_DNA(string1) == "Valid" and (valid_DNA(string2)) == "Valid":
+    print("Both strings are valid!")
+else:
+    print("One or more string(s) are invalid.")
+#Checking if they are the same strings with reverse and mirror functions
+if string1 == string2:
+    print("Yes, strings represent the same DNA fragment.")
+elif string1 == reverse(string2) or string2 == reverse(string1):
+    print("Yes, strings represent the same DNA fragment.")
+elif string1 == mirror(string2) or string2 == mirror(string1):
+    print("Yes, strings represent the same DNA fragment.")
+else:
+    print("No, strings are different fragments.")
